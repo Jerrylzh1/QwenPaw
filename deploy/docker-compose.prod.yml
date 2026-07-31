@@ -1,0 +1,33 @@
+# QwenPaw 自构建镜像的生产部署 compose（复用既有命名卷，零数据迁移）。
+# 用法：docker compose -f deploy/docker-compose.prod.yml up -d
+# 三个卷为 external（已在宿主机存在），compose 不会创建/覆盖它们。
+services:
+  qwenpaw:
+    image: qwenpaw:latest
+    container_name: qwenpaw
+    restart: always
+    ports:
+      - "8088:8088"   # 对外 0.0.0.0:8088；若走反向代理/只本机访问，改为 "127.0.0.1:8088:8088"
+    environment:
+      - QWENPAW_PORT=8088
+      - QWENPAW_RUNNING_IN_CONTAINER=1
+      - QWENPAW_DISABLED_CHANNELS=imessage
+      - PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium
+      - PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+      - TZ=Asia/Shanghai
+      # 可选开启认证（暴露公网时建议开启）：
+      # - QWENPAW_AUTH_ENABLED=true
+      # - QWENPAW_AUTH_USERNAME=admin
+      # - QWENPAW_AUTH_PASSWORD=change_me
+    volumes:
+      - qwenpaw-data:/app/working
+      - qwenpaw-secrets:/app/working.secret
+      - qwenpaw-backups:/app/working.backups
+
+volumes:
+  qwenpaw-data:
+    external: true
+  qwenpaw-secrets:
+    external: true
+  qwenpaw-backups:
+    external: true

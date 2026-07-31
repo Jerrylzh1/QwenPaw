@@ -10,6 +10,9 @@
 #   QWENPAW_ENABLED_CHANNELS=discord,telegram  bash scripts/docker_build.sh
 set -e
 
+# BuildKit is required: the Dockerfile uses COPY --chmod=755 (BuildKit-only).
+export DOCKER_BUILDKIT=1
+
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
