@@ -432,16 +432,15 @@ export default function Header() {
         <Space size="middle">
           <Slot name="header.right" kind="fill" />
           {/* 文档资料下拉菜单 - 已隐藏 */}
-          {false && resourcesMenuItems.length > 0 && (
-            <Dropdown menu={{ items: resourcesMenuItems }}>
+          {resourcesMenuItems.length > 0 && (
+            <Dropdown menu={{ items: resourcesMenuItems }} style={{ display: "none" }}>
               <Button type="text" className={styles.hideOnMobile}>
                 {t("header.resources")} <DownOutlined />
               </Button>
             </Dropdown>
           )}
           {/* GitHub 按钮 - 已隐藏 */}
-          {false && (
-          <Tooltip title={t("header.github")}>
+          <Tooltip title={t("header.github")} style={{ display: "none" }}>
             <Button
               type="text"
               icon={<GithubOutlined />}
@@ -451,7 +450,6 @@ export default function Header() {
               {t("header.github")}
             </Button>
           </Tooltip>
-          )}
           <div className={styles.headerDivider} />
           <span className={styles.hideOnMobile}>
             <CodingModeToggle />
@@ -461,11 +459,9 @@ export default function Header() {
             <LanguageSwitcher />
           </span>
           {/* 切换背景色按钮 - 已隐藏 */}
-          {false && (
-          <span className={styles.hideOnMobile}>
+          <span className={styles.hideOnMobile} style={{ display: "none" }}>
             <ThemeToggleButton />
           </span>
-          )}
           <Dropdown menu={{ items: mobileMenuItems }} placement="bottomRight">
             <Button
               type="text"
