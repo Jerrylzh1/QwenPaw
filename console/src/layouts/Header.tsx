@@ -432,13 +432,11 @@ export default function Header() {
         <Space size="middle">
           <Slot name="header.right" kind="fill" />
           {/* 文档资料下拉菜单 - 已隐藏 */}
-          {resourcesMenuItems.length > 0 && (
-            <Dropdown menu={{ items: resourcesMenuItems }} style={{ display: "none" }}>
-              <Button type="text" className={styles.hideOnMobile}>
-                {t("header.resources")} <DownOutlined />
-              </Button>
-            </Dropdown>
-          )}
+          <Dropdown menu={{ items: resourcesMenuItems }} style={{ display: "none" }}>
+            <Button type="text" className={styles.hideOnMobile}>
+              {t("header.resources")} <DownOutlined />
+            </Button>
+          </Dropdown>
           {/* GitHub 按钮 - 已隐藏 */}
           <Tooltip title={t("header.github")} style={{ display: "none" }}>
             <Button
