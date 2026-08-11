@@ -2842,6 +2842,24 @@ export default function ChatPage() {
           ...defaultConfig.theme.leftHeader,
           ...(extLeftTitle !== undefined ? { title: extLeftTitle } : {}),
           ...(extLeftLogo !== undefined ? { logo: extLeftLogo } : {}),
+          render: () => (
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <img
+                src={
+                  (extLeftLogo as string) ||
+                  (defaultConfig.theme.leftHeader as any).logo ||
+                  "/qwenpaw.png"
+                }
+                alt="logo"
+                style={{ width: 80, height: 40, objectFit: "contain" }}
+              />
+              <span style={{ fontWeight: 600, fontSize: 15 }}>
+                {(extLeftTitle as string) ||
+                  (defaultConfig.theme.leftHeader as any).title ||
+                  ""}
+              </span>
+            </div>
+          ),
         }
       );
 
