@@ -6,8 +6,8 @@ const defaultConfig = {
     darkMode: false,
     prefix: "qwenpaw",
     leftHeader: {
-      logo: "",
-      title: "Work with QwenPaw",
+      logo: "/qwenpaw.png",
+      title: "北京公交",
     },
     bubbleList: {
       userMessageAnchors: {

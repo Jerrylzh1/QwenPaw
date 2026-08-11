@@ -346,7 +346,7 @@ export default function Header() {
           */}
           <Slot name="header.logo" kind="replace">
             <img
-              src={isDark ? "/logo-dark.svg" : "/logo-light.svg"}
+              src={isDark ? "/qwenpawBack.png" : "/logo-light.png"}
               alt="QwenPaw"
               className={styles.logoImg}
             />
@@ -431,13 +431,16 @@ export default function Header() {
         <Slot name="header.left" kind="fill" />
         <Space size="middle">
           <Slot name="header.right" kind="fill" />
-          {resourcesMenuItems.length > 0 && (
+          {/* 文档资料下拉菜单 - 已隐藏 */}
+          {false && resourcesMenuItems.length > 0 && (
             <Dropdown menu={{ items: resourcesMenuItems }}>
               <Button type="text" className={styles.hideOnMobile}>
                 {t("header.resources")} <DownOutlined />
               </Button>
             </Dropdown>
           )}
+          {/* GitHub 按钮 - 已隐藏 */}
+          {false && (
           <Tooltip title={t("header.github")}>
             <Button
               type="text"
@@ -448,6 +451,7 @@ export default function Header() {
               {t("header.github")}
             </Button>
           </Tooltip>
+          )}
           <div className={styles.headerDivider} />
           <span className={styles.hideOnMobile}>
             <CodingModeToggle />
@@ -456,9 +460,12 @@ export default function Header() {
           <span className={styles.hideOnMobile}>
             <LanguageSwitcher />
           </span>
+          {/* 切换背景色按钮 - 已隐藏 */}
+          {false && (
           <span className={styles.hideOnMobile}>
             <ThemeToggleButton />
           </span>
+          )}
           <Dropdown menu={{ items: mobileMenuItems }} placement="bottomRight">
             <Button
               type="text"
