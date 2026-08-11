@@ -2851,7 +2851,7 @@ export default function ChatPage() {
                   "/qwenpaw.png"
                 }
                 alt="logo"
-                style={{ width: 80, height: 40, objectFit: "contain" }}
+                style={{ width: 120, height: 50, objectFit: "contain" }}
               />
               <span style={{ fontWeight: 600, fontSize: 15 }}>
                 {(extLeftTitle as string) ||
@@ -2902,7 +2902,7 @@ export default function ChatPage() {
       },
       welcome: {
         ...i18nConfig.welcome,
-        nick: extNick ?? "QwenPaw",
+        nick: extNick ?? "路路助手",
         avatar: extAvatar ?? "/qwenpaw.png",
         ...(extGreeting !== undefined ? { greeting: extGreeting } : {}),
         ...(extDescription !== undefined
