@@ -432,22 +432,26 @@ export default function Header() {
         <Space size="middle">
           <Slot name="header.right" kind="fill" />
           {/* 文档资料下拉菜单 - 已隐藏 */}
-          <Dropdown menu={{ items: resourcesMenuItems }} style={{ display: "none" }}>
-            <Button type="text" className={styles.hideOnMobile}>
-              {t("header.resources")} <DownOutlined />
-            </Button>
-          </Dropdown>
+          {false && (
+            <Dropdown menu={{ items: resourcesMenuItems }}>
+              <Button type="text" className={styles.hideOnMobile}>
+                {t("header.resources")} <DownOutlined />
+              </Button>
+            </Dropdown>
+          )}
           {/* GitHub 按钮 - 已隐藏 */}
-          <Tooltip title={t("header.github")} style={{ display: "none" }}>
-            <Button
-              type="text"
-              icon={<GithubOutlined />}
-              onClick={() => handleNavClick(GITHUB_URL)}
-              className={styles.hideOnMobile}
-            >
-              {t("header.github")}
-            </Button>
-          </Tooltip>
+          {false && (
+            <Tooltip title={t("header.github")}>
+              <Button
+                type="text"
+                icon={<GithubOutlined />}
+                onClick={() => handleNavClick(GITHUB_URL)}
+                className={styles.hideOnMobile}
+              >
+                {t("header.github")}
+              </Button>
+            </Tooltip>
+          )}
           <div className={styles.headerDivider} />
           <span className={styles.hideOnMobile}>
             <CodingModeToggle />
@@ -457,9 +461,11 @@ export default function Header() {
             <LanguageSwitcher />
           </span>
           {/* 切换背景色按钮 - 已隐藏 */}
-          <span className={styles.hideOnMobile} style={{ display: "none" }}>
-            <ThemeToggleButton />
-          </span>
+          {false && (
+            <span className={styles.hideOnMobile}>
+              <ThemeToggleButton />
+            </span>
+          )}
           <Dropdown menu={{ items: mobileMenuItems }} placement="bottomRight">
             <Button
               type="text"
