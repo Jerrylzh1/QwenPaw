@@ -2851,7 +2851,7 @@ export default function ChatPage() {
                   "/qwenpaw.png"
                 }
                 alt="logo"
-                style={{ width: 200, height: 80, objectFit: "contain" }}
+                style={{ objectFit: "contain" }}
               />
               <span style={{ fontWeight: 700, fontSize: 20 }}>
                 {(extLeftTitle as string) ||
